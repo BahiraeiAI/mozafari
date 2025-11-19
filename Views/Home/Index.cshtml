@@ -1,9 +1,66 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IndexViewModel;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .main-container {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Top Bar -->
+    <nav class="navbar bg-white shadow-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold ms-3">RoshedTehran</a>
+            <button class="btn btn-primary me-3" id="searchOnlineBtn">Search Online</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="d-flex flex-column justify-content-center align-items-center main-container">
+        <div class="w-50 mb-3">
+            <input type="text" class="form-control form-control-lg shadow-sm" id="queryInput" placeholder="Enter your query...">
+        </div>
+
+        <button class="btn btn-outline-primary btn-lg" id="searchLocalBtn">Search Locally</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Logic -->
+    <script>const searchOnlineBtn = document.getElementById('searchOnlineBtn');
+        const searchLocalBtn = document.getElementById('searchLocalBtn');
+        const queryInput = document.getElementById('queryInput');
+
+        searchOnlineBtn.addEventListener('click', () => {
+            const query = queryInput.value.trim();
+            if (query) {
+                console.log("Online search for:", query);
+            } else {
+                alert("Please enter a query first!");
+            }
+        });
+
+        searchLocalBtn.addEventListener('click', () => {
+            const query = queryInput.value.trim();
+            if (query) {
+                console.log("Local search for:", query);
+            } else {
+                alert("Please enter a query first!");
+            }
+        });</script>
+
+</body>
+</html>

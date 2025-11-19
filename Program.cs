@@ -1,4 +1,9 @@
-﻿namespace RoshedTehran;
+﻿using RoshedTehran.Data;
+using Npgsql.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using RoshedTehran.Services;
+
+namespace RoshedTehran;
 
 public class Program
 {
@@ -8,7 +13,11 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+        builder.Services.AddHttpClient<EmbederService>();
+        builder.Services.AddSingleton<EmbederService>();
+        builder.Services.AddSingleton<QdrantService>();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

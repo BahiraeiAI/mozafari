@@ -8,4 +8,30 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Qdrant.Client" Version="1.15.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="ViewModels\" />
+    <None Remove="Models\" />
+    <None Remove="Services\" />
+    <None Remove="DTOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="DTOs\" />
+  </ItemGroup>
 </Project>
